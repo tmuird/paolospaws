@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – Paolo's Paws</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Paolo's Paws</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="about">
+      <div class="about-container">
+        <div class="about-content">
+          <h2>Our Story</h2>
+          <p>
+            Founded in 2024, Paolo's Paws emerged from a simple yet powerful idea: pets deserve 
+            the highest quality care, delivered with personal attention and professional expertise.
+          </p>
+          <p>
+            Our founder, Paolo, has over 15 years of experience in professional pet care. What 
+            started as a passion for animals grew into a mission to provide the community with 
+            reliable, loving pet care services.
+          </p>
+          <div class="values-grid">
+            <div class="value-card">
+              <i class="fas fa-heart"></i>
+              <h3>Compassion</h3>
+              <p>We treat every pet as if they were our own, providing loving care and attention.</p>
+            </div>
+            <div class="value-card">
+              <i class="fas fa-shield-alt"></i>
+              <h3>Reliability</h3>
+              <p>Count on us to be there when you need us, with consistent, dependable service.</p>
+            </div>
+            <div class="value-card">
+              <i class="fas fa-certificate"></i>
+              <h3>Expertise</h3>
+              <p>Our team is professionally trained and experienced in all aspects of pet care.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="images/dog.jpeg" alt="Paolo with a happy client" />
+        </div>
+      </div>
+    </section>
+
+    <section class="team">
+      <div class="team-container">
+        <h2>Meet Our Team</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="member-image">
+              <img src="images/dog.jpeg" alt="Paolo - Founder" />
+            </div>
+            <h3>Paolo</h3>
+            <p class="title">Founder & Lead Caregiver</p>
+            <p class="bio">
+              With over 15 years of experience in pet care, Paolo brings expertise 
+              and compassion to every interaction with our furry clients.
+            </p>
+          </div>
+          <div class="team-member">
+            <div class="member-image">
+              <img src="images/dog.jpeg" alt="Sarah - Pet Care Specialist" />
+            </div>
+            <h3>Sarah</h3>
+            <p class="title">Pet Care Specialist</p>
+            <p class="bio">
+              Sarah's gentle approach and deep understanding of animal behavior 
+              makes her a favorite among our more shy and anxious pets.
+            </p>
+          </div>
+          <div class="team-member">
+            <div class="member-image">
+              <img src="images/dog.jpeg" alt="Mike - Dog Walking Expert" />
+            </div>
+            <h3>Mike</h3>
+            <p class="title">Dog Walking Expert</p>
+            <p class="bio">
+              An experienced dog trainer, Mike specializes in providing engaging 
+              and safe walking experiences for dogs of all sizes and energy levels.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="certifications">
+      <div class="certifications-container">
+        <h2>Our Certifications</h2>
+        <div class="cert-grid">
+          <div class="cert-item">
+            <i class="fas fa-medal"></i>
+            <h3>Pet First Aid Certified</h3>
+            <p>All team members are certified in pet first aid and emergency response.</p>
+          </div>
+          <div class="cert-item">
+            <i class="fas fa-award"></i>
+            <h3>Professional Pet Sitters</h3>
+            <p>Members of the Professional Pet Sitters Association.</p>
+          </div>
+          <div class="cert-item">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Insured & Bonded</h3>
+            <p>Full insurance coverage for peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>Paolo's Paws provides professional pet care services with a personal touch, ensuring your pets receive the love and attention they deserve.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="index.html#services">Services</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="index.html#contact">Contact</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Paolo's Paws. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hide header on scroll down, show on scroll up
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      const header = document.querySelector('header');
+      
+      if (currentScroll <= 0) {
+        header.classList.remove('header-hidden');
+        return;
+      }
+      
+      if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
+        header.classList.add('header-hidden');
+      } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
+        header.classList.remove('header-hidden');
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
+</body>
+</html>

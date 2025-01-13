@@ -1,0 +1,39 @@
+{
+  "name": "paolospaws",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass scss/main.scss css/styles.css --style=expanded"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmuird/paolospaws.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmuird/paolospaws/issues"
+  },
+  "homepage": "https://github.com/tmuird/paolospaws#readme",
+  "devDependencies": {
+    "sass": "^1.83.1"
+  },
+  "dependencies": {
+    "braces": "^3.0.3",
+    "chokidar": "^4.0.3",
+    "detect-libc": "^1.0.3",
+    "fill-range": "^7.1.1",
+    "immutable": "^5.0.3",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "is-number": "^7.0.0",
+    "micromatch": "^4.0.8",
+    "node-addon-api": "^7.1.1",
+    "picomatch": "^2.3.1",
+    "readdirp": "^4.1.1",
+    "source-map-js": "^1.2.1",
+    "to-regex-range": "^5.0.1"
+  },
+  "description": ""
+}
