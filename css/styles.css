@@ -43,23 +43,57 @@ header nav .nav-container {
     padding: 1rem 0;
   }
 }
+header nav .nav-container .logo {
+  position: relative;
+}
+
 header nav .nav-container .logo a {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   color: #2C4A52;
-  transition: all 0.3s ease;
 }
-header nav .nav-container .logo a:hover {
-  color: #FF7F50;
+
+header nav .nav-container .logo h1 {
+  position: relative;
+  margin-right: 35px;
 }
-header nav .nav-container .logo a h1 {
-  font-size: 1.4rem;
-  margin: 0;
+
+header nav .nav-container .logo h1::after {
+  content: "\1F43E"; /* Paw print emoji 🐾 */
+  position: absolute;
+  right: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  animation: wag 2s ease-in-out infinite;
+  transform-origin: center;
+  display: inline-block;
 }
-@media (min-width: 768px) {
-  header nav .nav-container .logo a h1 {
-    font-size: 1.8rem;
+
+@keyframes wag {
+  0%, 100% { 
+    transform: translateY(-50%) rotate(0deg);
+  }
+  25% { 
+    transform: translateY(-50%) rotate(15deg);
+  }
+  75% { 
+    transform: translateY(-50%) rotate(-15deg);
   }
 }
+
+@media (max-width: 768px) {
+  header nav .nav-container .logo h1 {
+    margin-right: 25px;
+  }
+  
+  header nav .nav-container .logo h1::after {
+    right: -25px;
+    font-size: 0.7em;
+  }
+}
+
 header nav .nav-container .nav-links {
   display: flex;
   gap: 1rem;
@@ -192,6 +226,19 @@ header nav .nav-container .mobile-menu {
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.hero .hero-container .hero-text .cta-button::after {
+  content: "→";
+  position: absolute;
+  right: 20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.hero .hero-container .hero-text .cta-button:hover::after {
+  opacity: 1;
+  right: 15px;
 }
 .hero .hero-container .hero-text .cta-button:hover {
   background-color: rgb(255, 89.6971428571, 29);
@@ -217,8 +264,9 @@ header nav .nav-container .mobile-menu {
   height: auto;
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transform: translateY(0);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 1s ease-out forwards;
+  animation: floatWithShadow 5s ease-in-out infinite;
 }
 .hero .hero-container .hero-image img:hover {
   transform: translateY(-5px);
@@ -271,6 +319,7 @@ header nav .nav-container .mobile-menu {
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   justify-content: center;
+  counter-reset: card-counter;
 }
 
 @media (min-width: 768px) {
@@ -297,11 +346,13 @@ header nav .nav-container .mobile-menu {
   overflow: hidden;
   border: 1px solid rgba(157, 199, 196, 0.1);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideInWithFade 0.6s ease-out backwards;
 }
 
 @media (min-width: 768px) {
@@ -315,54 +366,21 @@ header nav .nav-container .mobile-menu {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
-.service-card i {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  color: #FF7F50;
-  margin-bottom: 0.75rem;
-  transition: all 0.3s ease;
+.team-member {
+  background-color: #E5F4F3;
+  border-radius: 16px;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 6px rgba(44, 74, 82, 0.05);
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  .service-card i {
-    margin-bottom: 1rem;
-  }
-}
-
-.service-card:hover i {
-  transform: scale(1.1);
-}
-
-.service-card h4 {
-  font-size: clamp(1rem, 3vw, 1.3rem);
-  color: #2C4A52;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-}
-
-@media (min-width: 768px) {
-  .service-card h4 {
-    margin-bottom: 1rem;
-  }
-}
-
-.service-card p {
-  color: #537A84;
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
-  line-height: 1.6;
-  margin: 0;
-  flex-grow: 1;
-}
-
-@media (max-width: 374px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .service-card {
-    max-width: 280px;
-    margin: 0 auto;
-  }
+.team-member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(44, 74, 82, 0.1);
 }
 
 .cta {
@@ -530,6 +548,30 @@ header nav .nav-container .mobile-menu {
   margin-bottom: 1.5rem;
   font-style: italic;
   line-height: 1.4;
+  position: relative;
+  display: inline-block;
+}
+
+.about-intro .tagline::before {
+  content: "\1F9AE"; /* Guide dog emoji 🦮 */
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  opacity: 0;
+  animation: slideInWithFade 0.5s ease-out 0.3s forwards;
+}
+
+.about-intro .tagline::after {
+  content: "\1F415"; /* Dog emoji 🐕 */
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  opacity: 0;
+  animation: slideInWithFade 0.5s ease-out 0.6s forwards;
 }
 
 .about-intro p {
@@ -545,11 +587,15 @@ header nav .nav-container .mobile-menu {
   padding: clamp(1.5rem, 5vw, 3rem);
   margin-bottom: 3rem;
   box-shadow: 0 4px 6px rgba(44, 74, 82, 0.05);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
 }
 
 .team-member:hover {
   transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(44, 74, 82, 0.1);
 }
 
 .team-member h3 {
@@ -605,19 +651,28 @@ header nav .nav-container .mobile-menu {
   margin-bottom: 1.2rem;
   line-height: 1.6;
   font-size: clamp(0.95rem, 2vw, 1.1rem);
+  transition: transform 0.3s ease;
 }
 
 .qualifications li:last-child {
   margin-bottom: 0;
 }
 
-.qualifications li:before {
-  content: "•";
+.qualifications li:hover {
+  transform: translateX(10px);
+}
+
+.qualifications li:hover::before {
+  animation: bounce 0.5s ease infinite;
+}
+
+.qualifications li::before {
+  content: "\1F43E"; /* Paw print emoji 🐾 */
   color: #FF7F50;
-  font-size: 1.4em;
+  font-size: 1.2em;
   position: absolute;
   left: 0;
-  top: -0.1em;
+  top: 0;
 }
 
 .qualifications p {
@@ -861,6 +916,61 @@ footer .footer-bottom p {
     transform: translateY(0);
   }
 }
+
+@keyframes wag {
+  0%, 100% { 
+    transform: translateY(-50%) rotate(0deg);
+  }
+  25% { 
+    transform: translateY(-50%) rotate(15deg);
+  }
+  75% { 
+    transform: translateY(-50%) rotate(-15deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pawPrint {
+  0% { 
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.1) rotate(0deg);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes slideInWithFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatWithShadow {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  }
+  50% {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  }
+}
+
 .text-center {
   text-align: center;
 }
@@ -940,4 +1050,15 @@ footer .footer-bottom p {
   color: #537A84;
   font-size: 0.9rem;
   margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
