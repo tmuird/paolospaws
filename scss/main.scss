@@ -1,3 +1,10 @@
+// Breakpoints
+$mobile-sm: 320px;
+$mobile: 576px;
+$tablet: 768px;
+$desktop: 1024px;
+$desktop-lg: 1200px;
+
 // Modern UI Variables
 $color-primary: #E5F4F3;     // Pastel turquoise (main background)
 $color-secondary: #9DC7C4;   // Darker turquoise
@@ -28,16 +35,19 @@ $spacing-md: 2rem;
 $spacing-lg: 4rem;
 $spacing-xl: 6rem;
 
-// Breakpoints
-$mobile: 576px;
-$tablet: 768px;
-$desktop: 1024px;
-
-// Mixins
+// Mobile-first mixins
 @mixin responsive-container {
-  width: min(90%, 1200px);
+  width: min(92%, $desktop-lg);
   margin: 0 auto;
-  padding: 0 $spacing-sm;
+  padding: 0 1rem;
+}
+
+@mixin section-padding {
+  padding: 4rem 0;
+  
+  @media (min-width: $tablet) {
+    padding: 6rem 0;
+  }
 }
 
 @mixin card-shadow {
@@ -50,11 +60,26 @@ $desktop: 1024px;
   }
 }
 
-@mixin section-padding {
-  padding: $spacing-xl 0;
+@mixin responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
   
-  @media (max-width: $tablet) {
-    padding: $spacing-lg 0;
+  @media (max-width: $mobile) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  @media (min-width: $tablet) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  @media (min-width: $desktop) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
   }
 }
 
@@ -80,7 +105,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-// Header
+// Header styles with mobile-first approach
 header {
   position: fixed;
   top: 0;
@@ -97,7 +122,11 @@ header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: $spacing-sm 0;
+      padding: 0.75rem 0;
+
+      @media (min-width: $tablet) {
+        padding: 1rem 0;
+      }
 
       .logo {
         a {
@@ -110,27 +139,40 @@ header {
           }
 
           h1 {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             margin: 0;
+
+            @media (min-width: $tablet) {
+              font-size: 1.8rem;
+            }
           }
         }
       }
 
       .nav-links {
         display: flex;
-        gap: $spacing-md;
+        gap: 1rem;
         list-style: none;
         margin: 0;
         padding: 0;
+
+        @media (min-width: $tablet) {
+          gap: 2rem;
+        }
 
         li {
           a {
             color: $color-text-primary;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             transition: $transition-standard;
-            padding: $spacing-xs $spacing-sm;
+            padding: 0.5rem;
             border-radius: 4px;
+
+            @media (min-width: $tablet) {
+              font-size: 1.1rem;
+              padding: 0.5rem 1rem;
+            }
 
             &:hover {
               color: $color-accent;
@@ -138,15 +180,49 @@ header {
           }
         }
       }
+
+      // Mobile menu button
+      .mobile-menu {
+        display: none;
+        
+        @media (max-width: $mobile) {
+          display: block;
+          position: relative;
+          width: 30px;
+          height: 20px;
+          cursor: pointer;
+          
+          span {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: $color-text-primary;
+            transition: $transition-standard;
+            
+            &:nth-child(1) { top: 0; }
+            &:nth-child(2) { top: 9px; }
+            &:nth-child(3) { top: 18px; }
+          }
+          
+          &.active {
+            span {
+              &:nth-child(1) {
+                transform: rotate(45deg);
+                top: 9px;
+              }
+              &:nth-child(2) {
+                opacity: 0;
+              }
+              &:nth-child(3) {
+                transform: rotate(-45deg);
+                top: 9px;
+              }
+            }
+          }
+        }
+      }
     }
   }
-}
-
-// Main content
-main {
-  flex: 1;
-  margin-top: 80px; // Adjust based on header height
-  overflow-x: hidden;
 }
 
 // Hero section
@@ -168,78 +244,77 @@ main {
   .hero-container {
     @include responsive-container;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: $spacing-xl;
     align-items: center;
 
-    @media (max-width: $tablet) {
-      grid-template-columns: 1fr;
+    @media (min-width: $tablet) {
+      grid-template-columns: 1fr 1fr;
       gap: $spacing-lg;
-      text-align: center;
-    }
-  }
-
-  .hero-text {
-    h2 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.2;
-      margin-bottom: $spacing-md;
-      color: $color-text-primary;
     }
 
-    p {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: $color-text-secondary;
-      margin-bottom: $spacing-lg;
-      max-width: 600px;
+    .hero-text {
+      h2 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.2;
+        margin-bottom: $spacing-md;
+        color: $color-text-primary;
+      }
 
-      @media (max-width: $tablet) {
-        margin-left: auto;
-        margin-right: auto;
+      p {
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        color: $color-text-secondary;
+        margin-bottom: $spacing-lg;
+        max-width: 600px;
+
+        @media (max-width: $tablet) {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: $color-accent;
+        color: white;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: 30px;
+        font-size: clamp(1rem, 2vw, 1.1rem);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: darken($color-accent, 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba($color-accent, 0.2);
+        }
       }
     }
 
-    .cta-button {
-      display: inline-block;
-      background-color: $color-accent;
-      color: white;
-      padding: $spacing-sm $spacing-lg;
-      border-radius: 30px;
-      font-size: clamp(1rem, 2vw, 1.1rem);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
+    .hero-image {
+      position: relative;
       
-      &:hover {
-        background-color: darken($color-accent, 10%);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba($color-accent, 0.2);
+      &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color-accent, 0.1);
+        border-radius: 20px;
+        z-index: -1;
       }
-    }
-  }
 
-  .hero-image {
-    position: relative;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      right: -20px;
-      width: 100%;
-      height: 100%;
-      background-color: rgba($color-accent, 0.1);
-      border-radius: 20px;
-      z-index: -1;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 20px;
-      @include card-shadow;
-      animation: fadeInUp 1s ease-out forwards;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        @include card-shadow;
+        animation: fadeInUp 1s ease-out forwards;
+      }
     }
   }
 }
@@ -251,6 +326,8 @@ main {
 
   .services-container {
     @include responsive-container;
+    max-width: 1400px;
+    margin: 0 auto;
     
     h2 {
       text-align: center;
@@ -260,79 +337,63 @@ main {
     }
 
     .service-categories {
-      .category {
-        margin-bottom: $spacing-xl;
-
-        h3 {
-          font-size: clamp(1.4rem, 3vw, 1.8rem);
-          color: $color-text-primary;
-          margin-bottom: $spacing-lg;
+      .services-grid {
+        @include responsive-grid;
+        
+        .service-card {
+          background-color: $color-gray-medium;
+          padding: 1.75rem;
+          border-radius: 15px;
           text-align: center;
+          transition: $transition-standard;
           position: relative;
+          overflow: hidden;
+          border: 1px solid rgba($color-secondary, 0.1);
+          @include card-shadow;
+          margin: 0 auto;
+          width: 100%;
+          max-width: 350px;
           
-          &::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: $color-accent;
-            margin: $spacing-sm auto 0;
-            border-radius: 2px;
+          @media (max-width: $mobile) {
+            padding: 1.5rem;
+            max-width: 300px;
           }
-        }
-
-        .services-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: $spacing-md;
           
-          .service-card {
-            background-color: $color-gray-medium;
-            padding: $spacing-lg;
-            border-radius: 15px;
-            text-align: center;
-            transition: $transition-standard;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba($color-secondary, 0.1);
-            @include card-shadow;
-            
-            &:hover {
-              transform: translateY(-5px);
-              background-color: lighten($color-gray-medium, 2%);
-              border-color: rgba($color-secondary, 0.2);
-              
-              i {
-                transform: scale(1.1);
-                color: $color-accent;
-              }
-            }
+          &:hover {
+            transform: translateY(-5px);
+            background-color: lighten($color-gray-medium, 2%);
+            border-color: rgba($color-secondary, 0.2);
             
             i {
-              font-size: 2rem;
+              transform: scale(1.1);
               color: $color-accent;
-              margin-bottom: $spacing-sm;
-              transition: $transition-standard;
-              position: relative;
-              z-index: 1;
             }
-            
-            h4 {
-              font-size: 1.2rem;
-              margin: $spacing-sm 0;
-              color: $color-text-primary;
-              position: relative;
-              z-index: 1;
-              font-weight: 600;
-            }
-            
-            p {
-              color: $color-text-secondary;
-              font-size: 0.95rem;
-              line-height: 1.6;
-              position: relative;
-              z-index: 1;
-            }
+          }
+          
+          i {
+            font-size: 2rem;
+            color: $color-accent;
+            margin-bottom: $spacing-sm;
+            transition: $transition-standard;
+            position: relative;
+            z-index: 1;
+          }
+          
+          h4 {
+            font-size: 1.2rem;
+            margin: $spacing-sm 0;
+            color: $color-text-primary;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+          }
+          
+          p {
+            color: $color-text-secondary;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
           }
         }
       }
@@ -340,6 +401,7 @@ main {
   }
 }
 
+// CTA section
 .cta {
   @include section-padding;
   background-color: $color-bg;
@@ -364,15 +426,11 @@ main {
     }
 
     .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: $spacing-lg;
-      max-width: 1000px;
-      margin: 0 auto;
-
+      @include responsive-grid;
+      
       .contact-card {
         background-color: $color-gray-medium;
-        padding: $spacing-lg;
+        padding: 2rem;
         border-radius: 15px;
         @include card-shadow;
         transition: $transition-standard;
@@ -588,9 +646,14 @@ main {
 
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: $spacing-lg;
     
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: $spacing-lg;
+    }
+
     .team-member {
       text-align: center;
       
@@ -648,9 +711,14 @@ main {
 
   .cert-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: $spacing-md;
     
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: $spacing-lg;
+    }
+
     .cert-item {
       background-color: $color-white;
       padding: $spacing-md;
@@ -689,8 +757,13 @@ footer {
   .footer-content {
     @include responsive-container;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: $spacing-lg;
+
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: $spacing-lg;
+    }
 
     .footer-section {
       h3 {
