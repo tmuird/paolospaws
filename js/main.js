@@ -81,6 +81,47 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.animationDelay = `${index * 0.1}s`;
   });
 
+  // Lazy load images for performance
+  if ('IntersectionObserver' in window) {
+    const imgObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
+          if (src) {
+            img.src = src;
+            img.removeAttribute('data-src');
+          }
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imgObserver.observe(img);
+    });
+  }
+
+  // Add subtle animation to service area list
+  const serviceAreaItems = document.querySelectorAll('.service-areas li');
+  if (serviceAreaItems.length) {
+    serviceAreaItems.forEach((item, index) => {
+      item.style.animationDelay = `${index * 0.1}s`;
+    });
+  }
+
+  // Enhance testimonial cards
+  const testimonialsCard = document.querySelector('.testimonial-featured .testimonial-card');
+  if (testimonialsCard) {
+    testimonialsCard.addEventListener('mouseenter', () => {
+      testimonialsCard.style.transform = 'translateY(-8px) scale(1.02)';
+    });
+    
+    testimonialsCard.addEventListener('mouseleave', () => {
+      testimonialsCard.style.transform = 'translateY(0) scale(1)';
+    });
+  }
+
   // Simple form validation
   const contactForms = document.querySelectorAll('form');
   contactForms.forEach(form => {
