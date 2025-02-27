@@ -2,19 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, maximum-scale=5.0"/>
+  <meta name="description" content="Paolo's Paws provides professional pet care services including pet sitting, dog walking, and specialized pet activities in a classic, caring approach.">
+  <meta name="keywords" content="pet care, dog walking, pet sitting, pet services, dog training">
+  <meta name="author" content="Paolo's Paws">
   <title>Paolo's Paws – Professional Pet Care Services</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
   <!-- Font Awesome for icons -->
-  <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
   <header>
-    <nav>
+    <nav aria-label="Main Navigation">
       <div class="nav-container">
         <div class="logo">
-          <a href="#home">
+          <a href="#home" aria-label="Home">
+            <img src="images/logo.svg" alt="Paolo's Paws Logo" />
             <h1>Paolo's Paws</h1>
           </a>
         </div>
@@ -23,11 +29,11 @@
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="mobile-menu">
+        <button class="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
     </nav>
   </header>
@@ -45,12 +51,12 @@
           <a href="#contact" class="cta-button">Book a Service</a>
         </div>
         <div class="hero-image">
-          <img src="images/dog.jpeg" alt="Happy dog being cared for" />
+          <img src="images/dog.jpeg" alt="Happy dog being cared for" loading="eager" />
         </div>
       </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section - Fix heading structure -->
     <section class="services" id="services">
       <div class="services-container">
         <h2>Our Services</h2>
@@ -60,12 +66,15 @@
             <h3>For Your Pet</h3>
             <div class="services-grid">
               <div class="service-card">
+       
                 <i class="fas fa-home"></i>
                 <h4>Pet Sitting</h4>
                 <p>Professional in-home pet sitting services ensuring your pet stays comfortable in their familiar environment.</p>
               </div>
+            
               
               <div class="service-card">
+  
                 <i class="fas fa-walking"></i>
                 <h4>Dog Walking</h4>
                 <p>Tailored walking services to keep your dog healthy, happy, and well-exercised.</p>
@@ -89,13 +98,13 @@
                 <p>Safe and comfortable transportation services with custom vehicle modifications.</p>
               </div>
               
-              <div class="service-card">
+              <!-- <div class="service-card">
                 <i class="fas fa-swimming-pool"></i>
                 <h4>Hydrotherapy</h4>
                 <p>Professional hydrotherapy sessions for rehabilitation and wellness.</p>
-              </div>
+              </div> -->
               
-              <div class="service-card">
+              <!-- <div class="service-card">
                 <i class="fas fa-cut"></i>
                 <h4>Grooming</h4>
                 <p>Expert grooming services to keep your pet looking and feeling their best.</p>
@@ -105,23 +114,23 @@
                 <i class="fas fa-certificate"></i>
                 <h4>Training & Behaviour</h4>
                 <p>Professional behavior training and modification programs.</p>
-              </div>
+              </div> -->
             </div>
           </div>
 
           <div class="category owner-services">
             <h3>For Pet Owners</h3>
             <div class="services-grid">
-              <div class="service-card">
+              <!-- <div class="service-card">
                 <i class="fas fa-graduation-cap"></i>
                 <h4>Owner Training</h4>
                 <p>Comprehensive training programs to help you better understand and care for your pet.</p>
-              </div>
+              </div> -->
               
               <div class="service-card">
                 <i class="fas fa-briefcase"></i>
                 <h4>Career Advice</h4>
-                <p>Specialized career guidance in the pet industry, with hands-on experience options available.</p>
+                <p>Feeling stuck in your career path? Book a career guidance session with a qualified advisor – and your pet companion! Having your furry friend present can create a relaxing atmosphere, helping you gain more insights from each session. Don't have a pet? We can arrange one for you, or conduct a standard session if you prefer.</p>
               </div>
             </div>
           </div>
@@ -145,16 +154,16 @@
               <div class="member-text">
                 <p>Our CEO (Chief Excitement Officer) is none other than Paolo, a 15-year-old Labrador with a nose for adventure and a heart full of love. Paolo is a working Labrador who splits his time between inspiring the Paolo's Paws team and enjoying life's simple pleasures. Whether it's a nap on the sofa with a human, a trip to the pub, or a refreshing dip in the park lake, Paolo knows how to live life to the fullest.</p>
                 <p>When it comes to food, Paolo's favourites include salmon skin, veggie sausages, and, if he's lucky, the occasional steak. While he's a champion of relaxation and good vibes, Paolo isn't a fan of really hot weather, loud noises like fireworks, or the dreaded car windscreen wiper – which he bravely tolerates, despite being a self-admitted wuss.</p>
-                <p>Paolo has been lovingly cared for by his neighbour Tom, our CHEW (Chief Human Empowerment Officer), since he was 9 years old. Together, they've created a brand that puts pets first, ensuring every service is delivered with love, care, and a whole lot of tail wags.</p>
+                <p>Paolo has been lovingly cared for by his neighbour Tom, our PUP  (Professional Ultimate Pet-sitter), since he was 9 years old. Together, they've created a brand that puts pets first, ensuring every service is delivered with love, care, and a whole lot of tail wags.</p>
               </div>
             </div>
           </div>
 
           <div class="team-member">
-            <h3>Meet Tom, Our CHEW</h3>
+            <h3>Meet Tom, Our PUP</h3>
             <div class="member-content">
               <div class="member-text">
-                <p>While Paolo may be the face of the brand, Tom, our CHEW, is the passionate human behind Paolo's Paws. Tom started walking Paolo when he was just 14 years old, and the two instantly hit it off! From that day on, Tom has been a dedicated pet care provider, looking after many of Paolo's friends and other pets over the years.</p>
+                <p>While Paolo may be the face of the brand, Tom, our PUP, is the passionate human behind Paolo's Paws. Tom started walking Paolo when he was just 14 years old, and the two instantly hit it off! From that day on, Tom has been a dedicated pet care provider, looking after many of Paolo's friends and other pets over the years.</p>
                 <p>Tom has held various jobs during his school years and into his 20s, including lifeguard, shop assistant, barman, and even a police officer! However, none of these roles brought him as much fulfilment as working with dogs and pets.</p>
                 <p>In his free time, Tom enjoys paddleboarding, especially with dogs, as well as paddle polo, gaming (with a particular love for the WatchDogs franchise), visiting the beach, savouring food, curling up under a heated blanket, watching films, and hanging out with friends—some of whom, of course, are dogs! You could say Tom is "barking mad" for all things pet-related.</p>
               </div>
@@ -173,11 +182,59 @@
             </ul>
             <p>With a combination of experience, qualifications, and a true passion for pets, Tom helps ensure that Paolo's Paws runs smoothly and that every pet is treated with the care and respect they deserve. Whether you need a walk, pet sitting, or a friendly chat about your pet's future, Tom is here to offer guidance and expert care!</p>
           </div>
+          
+          <div class="photo-gallery">
+            <div class="photo-item">
+              <img src="images/paolopark1.jpeg" alt="Paolo enjoying the beach" loading="lazy">
+d
+            </div>
+            <div class="photo-item">
+              <img src="images/tomandpaolo.jpeg" alt="Paolo on a paddleboard" loading="lazy">
+            </div>
+            <div class="photo-item">
+              <img src="images/paolopark1.jpeg" alt="Paolo at the park" loading="lazy">
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="testimonials-container">
+        <h2>What Pet Parents Say</h2>
+        
+        <div class="testimonial-cards">
+          <div class="testimonial-card">
+            <p class="quote">Paolo and Tom provided exceptional care for my two dogs when I was away. They came back happy and well-exercised. I love the detailed updates and photos they sent!</p>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img src="images/dog.jpeg" alt="Sarah and her pets" loading="lazy">
+              </div>
+              <div class="author-info">
+                <h4>Sarah Johnson</h4>
+                <p>Owner of Max & Bella</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <p class="quote">Tom is incredible with anxious pets! My rescue dog usually hides from strangers, but he warmed up to Tom in minutes. The paddleboarding session was the highlight of our summer.</p>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img src="images/dog.jpeg" alt="David and his dog" loading="lazy">
+              </div>
+              <div class="author-info">
+                <h4>David Miller</h4>
+                <p>Owner of Charlie</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section - Updated for consistent button styling -->
     <section class="cta" id="contact">
       <div class="cta-container">
         <h2>Get in Touch</h2>
@@ -185,27 +242,48 @@
         
         <div class="contact-grid">
           <div class="contact-card">
-            <i class="fas fa-phone"></i>
-            <h4>Call Us</h4>
-            <p>+44 (0) 123 456 7890</p>
-            <a href="tel:+441234567890" class="contact-button">Call Now</a>
+            <div class="card-header">
+             
+              <h4>Call Us</h4>
+              <p>+44 7392321307</p>
+            </div>
+            <div class="contact-buttons">
+              <a href="tel:+447392321307" class="contact-button">
+         
+                <span class="button-text">Call</span>
+              </a>
+              <a href="https://wa.me/447392321307" class="contact-button">
+   
+                <span class="button-text">WhatsApp</span>
+              </a>
+            </div>
           </div>
           
           <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <h4>Email Us</h4>
-            <p>hello@paolospaws.com</p>
-            <a href="mailto:hello@paolospaws.com" class="contact-button">Send Email</a>
+            <div class="card-header">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <h4>Email Us</h4>
+              <p>paolospaws@yahoo.co.uk</p>
+            </div>
+            <a href="mailto:paolospaws@yahoo.co.uk" class="contact-button">
+          
+              <span class="button-text">Send Email</span>
+            </a>
           </div>
           
           <div class="contact-card">
-            <i class="fas fa-comments"></i>
-            <h4>Social Media</h4>
-            <p>Follow us for updates</p>
+            <div class="card-header">
+              <i class="fas fa-comments" aria-hidden="true"></i>
+              <h4>Social Media</h4>
+              <p>Follow us for updates</p>
+            </div>
             <div class="social-links">
-              <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-              <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -228,19 +306,21 @@
       <div class="footer-section">
         <h3>Connect With Us</h3>
         <div class="social-links">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Paolo's Paws. All rights reserved.</p>
+      <p>&copy; <span id="current-year">2023</span> Paolo's Paws. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Smooth scroll behavior -->
   <script>
+    // Set the current year in copyright
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Smooth scroll behavior
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -255,6 +335,8 @@
     const navLinks = document.querySelector('.nav-links');
     
     mobileMenu.addEventListener('click', () => {
+      const expanded = mobileMenu.getAttribute('aria-expanded') === 'true';
+      mobileMenu.setAttribute('aria-expanded', !expanded);
       mobileMenu.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
@@ -264,6 +346,7 @@
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
         navLinks.classList.remove('active');
+        mobileMenu.setAttribute('aria-expanded', 'false');
       });
     });
 
@@ -272,16 +355,18 @@
       if (!e.target.closest('.nav-container')) {
         mobileMenu.classList.remove('active');
         navLinks.classList.remove('active');
+        mobileMenu.setAttribute('aria-expanded', 'false');
       }
     });
 
     // Hide header on scroll down, show on scroll up
     let lastScroll = 0;
+    const header = document.querySelector('header');
+    
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
-      const header = document.querySelector('header');
       
-      if (currentScroll <= 0) {
+      if (currentScroll <= 50) {
         header.classList.remove('header-hidden');
         return;
       }
@@ -292,6 +377,11 @@
         header.classList.remove('header-hidden');
       }
       lastScroll = currentScroll;
+    });
+
+    // Add animation delay to service cards
+    document.querySelectorAll('.service-card').forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
     });
   </script>
 </body>

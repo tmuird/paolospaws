@@ -1,0 +1,19 @@
+You'll need to add the following images to your images directory:
+
+1. pet-sitting.jpg - A photo of Paolo or another dog being cared for in a home setting
+2. dog-walking.jpg - A photo of Paolo or another dog on a walk
+3. water-activities.jpg - A photo of a dog enjoying water activities, perhaps paddleboarding
+4. paolo-beach.jpg - A photo of Paolo at the beach
+5. paolo-paddleboard.jpg - A photo of Paolo on a paddleboard
+6. paolo-park.jpg - A photo of Paolo at the park
+7. testimonial-1.jpg - A small photo of a person with their pet (or just a pet)
+8. testimonial-2.jpg - Another small photo of a person with their pet
+
+You can use your own photos or stock photos for these placeholders.
+Make sure the images are properly sized and compressed for web use:
+- Hero image: Around 1200px × 800px
+- Service card images: Around 600px × 400px
+- Gallery images: Around 800px × 600px
+- Testimonial images: Small squares, around 100px × 100px
+
+Don't forget to optimize these images for web to reduce loading time!
