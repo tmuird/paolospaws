@@ -3,4 +3,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <meta name="theme-color" content="#E5F4F3">
+  <!-- Mobile optimization meta tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" as="style">
 </head>

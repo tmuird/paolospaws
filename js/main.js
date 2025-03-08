@@ -226,4 +226,42 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Also run after any images load (which might change heights)
   window.addEventListener('load', equalizeContactCardHeight);
+
+  // Fix 100vh issue on mobile browsers
+  function setViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    
+    // Fix hero height for mobile browsers
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+      heroSection.style.minHeight = `calc(var(--vh, 1vh) * 100)`;
+    }
+  }
+  
+  window.addEventListener('resize', setViewportHeight);
+  setViewportHeight();
+  
+  // Improve performance on mobile by using passive event listeners
+  document.addEventListener('touchstart', function() {}, { passive: true });
+  
+  // Delay loading non-critical resources on mobile
+  if (window.innerWidth < 768) {
+    const deferredImages = document.querySelectorAll('img[data-defer-src]');
+    if (deferredImages.length > 0) {
+      const loadDeferredImages = () => {
+        deferredImages.forEach(img => {
+          img.src = img.getAttribute('data-defer-src');
+          img.removeAttribute('data-defer-src');
+        });
+      };
+      
+      // Load after page is idle or after 2 seconds, whichever comes first
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadDeferredImages);
+      } else {
+        setTimeout(loadDeferredImages, 2000);
+      }
+    }
+  }
 });

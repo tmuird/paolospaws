@@ -4,19 +4,82 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+/* Card base styling - Add this at the top of your CSS file */
+.card-base {
+  background-color: #E8ECF0;
+  padding: 2.5rem;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(157, 199, 196, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  height: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  font-family: "Special Elite", Courier, monospace;
-  background-color: #E5F4F3;
-  color: #2C4A52;
-  line-height: 1.8;
+  justify-content: flex-start;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card-base:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  background-color: rgb(238, 241, 244);
+  border-color: rgba(157, 199, 196, 0.2);
+}
+
+/* Global card styling for consistency */
+.card-base, 
+.service-card,
+.team-member,
+.qualifications, 
+.location-card, 
+.testimonial-card,
+.contact-card,
+.value-card {
+  background-color: #E8ECF0;
+  padding: 2.5rem;
+  border-radius: 15px;
   -webkit-font-smoothing: antialiased;
+}
+
+header {ed Card Styling - Apply to all cards for consistency */
+  position: fixed;
+  top: 0;card,
+  left: 0;er,
+  width: 100%;s,
+  z-index: 1000;
+  background-color: rgba(229, 244, 243, 0.98);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 4px rgba(44, 74, 82, 0.05);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+} padding: 2rem;
+  border-radius: 15px;
+/* Add header hidden class for scroll behavior */
+header.header-hidden {
+  border: 1px solid rgba(157, 199, 196, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Unified Card Hover Effects */
+.card-base:hover,
+.service-card:hover,
+.team-member:hover,
+.qualifications:hover,
+.location-card:hover,
+.testimonial-card:hover,
+.contact-card:hover,
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  background-color: rgb(238, 241, 244);
+  border-color: rgba(157, 199, 196, 0.2);
 }
 
 header {
@@ -449,9 +512,10 @@ header nav .nav-container .mobile-menu {
   }
 }
 
+/* Update Service Cards */
 .service-card {
   background-color: #E8ECF0;
-  padding: 1.5rem;
+  padding: 2.5rem;
   border-radius: 15px;
   text-align: center;
   position: relative;
@@ -463,7 +527,7 @@ header nav .nav-container .mobile-menu {
   flex-direction: column;
   justify-content: flex-start;
   transform: translateY(0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   animation: slideInWithFade 0.6s ease-out backwards;
   margin: 0 auto;
   width: 100%;
@@ -471,19 +535,17 @@ header nav .nav-container .mobile-menu {
   align-items: center;
 }
 
-.service-card:hover::after {
-  width: 100%;
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  background-color: rgb(238, 241, 244);
+  border-color: rgba(157, 199, 196, 0.2);
 }
 
 @media (min-width: 768px) {
   .service-card {
     padding: 2rem;
   }
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
 .service-card .card-image {
@@ -505,22 +567,40 @@ header nav .nav-container .mobile-menu {
   transform: scale(1.05);
 }
 
+.service-card p {
+  line-height: 2; /* Increased line height for service descriptions */
+  margin-bottom: 1.5rem;
+  font-size: 1rem; /* Slightly larger font */
+  max-width: 90%; /* Prevent text from stretching too wide */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-card h4 {
+  margin-top: 1rem;
+  margin-bottom: 1.2rem; /* More space after heading */
+  line-height: 1.4;
+}
+
 .team-member {
-  background-color: #E5F4F3;
-  border-radius: 16px;
-  padding: clamp(1.5rem, 5vw, 3rem);
+  background-color: #E8ECF0;
+  border-radius: 15px;
+  padding: 2.5rem;
   margin-bottom: 3rem;
-  box-shadow: 0 4px 6px rgba(44, 74, 82, 0.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   position: relative;
   overflow: hidden;
   transform: translateY(0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center; /* Center all content by default */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+  border: 1px solid rgba(157, 199, 196, 0.1);
 }
 
 .team-member:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(44, 74, 82, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  background-color: rgb(238, 241, 244);
+  border-color: rgba(157, 199, 196, 0.2);
 }
 
 .team-member h3 {
@@ -608,12 +688,13 @@ header nav .nav-container .mobile-menu {
   align-items: center;
   text-align: center;
   justify-content: space-between; /* Distribute content evenly */
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 15px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   border: 1px solid rgba(157, 199, 196, 0.1);
   height: 100%;
+  background-color: #E8ECF0;
 }
 .cta .cta-container .contact-grid .contact-card:hover {
   transform: translateY(-5px);
@@ -828,20 +909,24 @@ header nav .nav-container .mobile-menu {
 }
 
 .team-member {
-  background-color: #E5F4F3;
-  border-radius: 16px;
-  padding: clamp(1.5rem, 5vw, 3rem);
+  background-color: #E8ECF0;
+  border-radius: 15px;
+  padding: 2.5rem;
   margin-bottom: 3rem;
-  box-shadow: 0 4px 6px rgba(44, 74, 82, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   position: relative;
   overflow: hidden;
   transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+  border: 1px solid rgba(157, 199, 196, 0.1);
 }
 
 .team-member:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(44, 74, 82, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  background-color: rgb(238, 241, 244);
+  border-color: rgba(157, 199, 196, 0.2);
 }
 
 .team-member h3 {
@@ -870,11 +955,19 @@ header nav .nav-container .mobile-menu {
 }
 
 .qualifications {
-  background-color: #fff;
-  border: 2px solid #E5F4F3;
-  border-radius: 16px;
-  padding: clamp(1.5rem, 5vw, 3rem);
-  box-shadow: 0 4px 6px rgba(44, 74, 82, 0.05);
+  background-color: #E8ECF0;
+  border: 1px solid rgba(157, 199, 196, 0.1);
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.qualifications:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  background-color: rgb(238, 241, 244);
+  border-color: rgba(157, 199, 196, 0.2);
 }
 
 .qualifications h3 {
@@ -1181,7 +1274,7 @@ footer .footer-bottom p {
   }
   100% { 
     opacity: 1;
-    transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0);
   }
 }
 
@@ -1263,7 +1356,7 @@ footer .footer-bottom p {
 }
 .values-grid .value-card {
   background-color: #FFFFFF;
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 15px;
   text-align: center;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
@@ -1428,119 +1521,75 @@ footer .footer-content .footer-section .social-links a {
 }
 
 .testimonials {
-  padding: 4rem 0;
+  padding: 6rem 0;
   background-color: #D5E9E7;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(157, 199, 196, 0.15), transparent);
+  z-index: 0;
 }
 
 .testimonials .testimonials-container {
   width: min(92%, 1200px);
   margin: 0 auto;
   padding: 0 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .testimonials h2 {
+  text-align: center;
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   color: #2C4A52;
-  margin-bottom: 3rem;
-}
-
-.testimonial-cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .testimonial-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.testimonial-card {
-  background-color: #FFFFFF;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial-card .quote {
-  font-size: 1.1rem;
-  line-height: 1.6;
   margin-bottom: 1.5rem;
-  font-style: italic;
-  color: #537A84;
+  position: relative;
 }
 
-.testimonial-card .quote::before {
-  content: """;
-  font-size: 3rem;
-  color: rgba(255, 127, 80, 0.2);
-  line-height: 0;
-  position: absolute;
-  top: 30px;
-  left: 20px;
+.testimonials h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: rgba(255, 127, 80, 0.6);
+  margin: 1rem auto 2rem;
+  border-radius: 2px;
 }
 
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  margin-top: auto;
-}
-
-.testimonial-author .author-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 1rem;
-  flex-shrink: 0;
-}
-
-.testimonial-author .author-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.testimonial-author .author-info {
-  flex: 1;
-}
-
-.testimonial-author .author-info h4 {
-  font-size: 1rem;
-  color: #2C4A52;
-  margin-bottom: 0.2rem;
-}
-
-.testimonial-author .author-info p {
-  font-size: 0.9rem;
-  color: #537A84;
-}
-
-/* Enhanced Testimonials Section */
+/* Testimonial Source Styling */
 .testimonial-source {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
   flex-wrap: wrap;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 .testimonial-source .google-badge {
-  height: 46px;
+  height: 50px;
   width: auto;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
+}
+
+.testimonial-source .google-badge:hover {
+  transform: translateY(-2px);
 }
 
 .testimonial-source p {
@@ -1551,36 +1600,147 @@ footer .footer-content .footer-section .social-links a {
 .testimonial-source a {
   color: #FF7F50;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.testimonial-source a:hover {
-  text-decoration: underline;
+.testimonial-source a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #FF7F50;
+  transition: width 0.3s ease;
 }
 
+.testimonial-source a:hover::after {
+  width: 100%;
+}
+
+/* Grid Layout for Testimonials */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin: 0 auto 2rem;
+}
+
+@media (max-width: 767px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Enhanced Card Styling */
+.testimonial-card {
+  background-color: #E8ECF0;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 12px 35px rgba(44, 74, 82, 0.08);
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+  border: 1px solid rgba(157, 199, 196, 0.1);
+  overflow: hidden;
+  border-top: none; /* Remove any potential border that might replace the gradient */
+}
+
+.testimonial-card::before {
+  display: none; /* Remove the orange gradient bar completely */
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(44, 74, 82, 0.08);
+}
+
+/* Review Header Styling */
 .review-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
 .stars {
   color: #FFBA00;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   letter-spacing: 2px;
+  line-height: 1;
 }
 
 .date {
   color: #537A84;
   font-size: 0.9rem;
+  background-color: rgba(83, 122, 132, 0.08);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
 }
 
+/* Quote Styling */
+.testimonial-card .quote {
+  font-size: 1.1rem;
+  line-height: 2;
+  margin-bottom: 2rem;
+  font-style: italic;
+  color: #2C4A52;
+  position: relative;
+  padding-left: 2rem;
+  flex-grow: 1;
+  font-weight: 400;
+}
+
+.testimonial-card .quote::before {
+  content: """;
+  position: absolute;
+  top: -8px;
+  left: 0;
+  font-size: 3rem;
+  color: rgba(255, 127, 80, 0.3);
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+
+/* Author Section Styling */
+.testimonial-author {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(157, 199, 196, 0.2);
+  padding-top: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.testimonial-author .author-info {
+  flex: 1;
+}
+
+.testimonial-author .author-info h4 {
+  font-size: 1.1rem;
+  color: #2C4A52;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+.testimonial-author .author-info p {
+  font-size: 0.9rem;
+  color: #537A84;
+}
+
+/* Footer Button Styling */
 .testimonial-footer {
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   text-align: center;
 }
 
@@ -1588,107 +1748,35 @@ footer .footer-content .footer-section .social-links a {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: #fff;
+  background-color: white;
   color: #2C4A52;
   border: 2px solid #FF7F50;
-  padding: 0.8rem 1.8rem;
-  border-radius: 25px;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
   text-decoration: none;
   font-size: 1.05rem;
   font-weight: 500;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(44, 74, 82, 0.06);
 }
 
 .review-button:hover {
   background-color: #FF7F50;
   color: white;
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(255, 127, 80, 0.25);
+  box-shadow: 0 8px 25px rgba(255, 127, 80, 0.25);
 }
 
 .review-button i {
   font-size: 1.2rem;
-  color: #4285F4; /* Google blue */
+  color: #4285F4;
+  transition: all 0.3s ease;
 }
 
 .review-button:hover i {
   color: white;
 }
 
-.testimonial-card {
-  background-color: #FFFFFF;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Enhanced Single Testimonial Layout */
-.testimonial-featured {
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  position: relative;
-  padding: 0 1.5rem; /* Add padding to accommodate quote marks on mobile */
-}
-
-@media (min-width: 768px) {
-  .testimonial-featured {
-    padding: 0 3rem;
-  }
-}
-
-.testimonial-featured::before {
-  content: '"';
-  position: absolute;
-  top: -30px;
-  left: -20px;
-  font-size: 120px;
-  color: rgba(255, 127, 80, 0.1);
-  font-family: Georgia, serif;
-  line-height: 1;
-  z-index: 0;
-}
-
-.testimonial-featured::after {
-  content: '"';
-  position: absolute;
-  bottom: -50px;
-  right: -10px;
-  font-size: 120px;
-  color: rgba(255, 127, 80, 0.1);
-  font-family: Georgia, serif;
-  line-height: 1;
-  z-index: 0;
-}
-
-.testimonial-featured .testimonial-card {
-  border: 1px solid rgba(157, 199, 196, 0.2);
-  padding: 2.5rem;
-  background-color: #fff;
-  box-shadow: 0 15px 40px rgba(44, 74, 82, 0.08);
-  position: relative;
-  z-index: 1;
-}
-
-.testimonial-featured .testimonial-card .quote {
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-}
-
-.testimonial-featured .testimonial-card .quote::before {
-  font-size: 2.5rem;
-  top: 20px;
-  left: 25px;
-  color: rgba(255, 127, 80, 0.15);
-}
-
-/* Location Section */
 .location {
   padding: 6rem 0;
   background-color: #E5F4F3;
@@ -1726,32 +1814,75 @@ footer .footer-content .footer-section .social-links a {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: stretch; /* Changed from center to stretch to match heights */
 }
 
-/* Fix map proportions - adjust grid for better balance */
 @media (min-width: 1024px) {
   .location-content {
-    grid-template-columns: 1fr 1fr; /* Changed from 1fr 1.5fr for better balance */
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-.location-info {
+.location-info,
+.location-map {
+  height: 100%; /* Ensure both columns have the same height */
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  height: 100%; /* Ensure full height */
 }
 
 .location-card {
-  background-color: #fff;
-  border-radius: 15px;
+  background-color: #E8ECF0;
   padding: 2.5rem;
-  box-shadow: 0 8px 30px rgba(44, 74, 82, 0.08);
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(157, 199, 196, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  height: 100%; /* Make card take full height */
+  justify-content: flex-start;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  background-color: rgb(238, 241, 244);
+  border-color: rgba(157, 199, 196, 0.2);
+}
+
+@media (min-width: 768px) {
+  .location-card {
+    padding: 2rem;
+  }
+}
+
+.location-card .card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.location-card h3 {
+  color: #2C4A52;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.location-card p {
+  color: #537A84;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  margin-bottom: 1.8rem;
+  text-align: center;
 }
 
 .location-icon {
@@ -1811,23 +1942,39 @@ footer .footer-content .footer-section .social-links a {
 .service-areas {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Larger minimum width */
   gap: 1rem;
-  margin: 0 0 1.5rem 0;
+  margin: 1.5rem 0;
   padding: 0;
+  width: 100%;
+  text-align: left; /* Align all items to the left */
 }
 
 .service-areas li {
+  padding: 0.4rem 0; /* More vertical padding */
   display: flex;
   align-items: center;
-  color: #2C4A52;
-  font-size: 0.95rem;
-  transition: transform 0.3s ease;
-  padding: 0.3rem 0;
+  font-size: 1rem; /* Slightly larger font */
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+  white-space: nowrap; /* Prevent items from wrapping */
 }
 
-.service-areas li:hover {
-  transform: translateX(5px);
+.service-areas .service-area-wide,
+.service-areas li:nth-child(8) { /* Targeting "South West London" */
+  grid-column: 1 / span 2; /* Make it span 2 columns */
+  justify-self: start; /* Align to the start of the grid area */
+}
+
+@media (max-width: 767px) {
+  .service-areas {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+  
+  .service-areas .service-area-wide,
+  .service-areas li:nth-child(8) {
+    grid-column: 1; /* Reset on mobile */
+  }
 }
 
 .service-areas li i {
@@ -1856,6 +2003,7 @@ footer .footer-content .footer-section .social-links a {
 .map-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background-color: #FF7F50;
   color: white;
@@ -1863,31 +2011,51 @@ footer .footer-content .footer-section .social-links a {
   border-radius: 25px;
   text-decoration: none;
   font-size: 1rem;
+  font-weight: 500;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .map-button:hover {
-  background-color: #FF6A3C;
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255, 127, 80, 0.2);
+  box-shadow: 0 8px 25px rgba(255, 127, 80, 0.2);
+  background-color: #FF6A3C;
 }
 
-.map-button i {
-  font-size: 1.1rem;
+.map-button:hover::before {
+  width: 150%;
+  height: 150%;
 }
 
 .location-map {
   width: 100%;
   height: 100%;
-  min-height: 400px;
+  min-height: 480px; /* Set minimum height to ensure map is visible */
 }
 
-/* Map wrapper improvements */
+/* Map wrapper fixes for height matching */
 .map-wrapper {
   position: relative;
   width: 100%;
-  height: 0;
-  padding-bottom: 100%; /* Square aspect ratio for map */
+  height: 100%; /* Changed from 0 to 100% */
+  min-height: 100%; /* Ensure it fills parent container */
+  padding-bottom: 0; /* Remove padding-bottom which was creating proportional height */
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(44, 74, 82, 0.1);
@@ -1928,5 +2096,431 @@ footer .footer-content .footer-section .social-links a {
   
   .service-areas {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 1023px) {
+  .location-map {
+    min-height: 400px; /* Slightly shorter on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .location-map {
+    min-height: 350px; /* Even shorter on mobile */
+  }
+  
+  .location-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Add travel info styling for special location items */
+.service-areas .travel-info {
+  color: #537A84;
+  grid-column: 1 / -1; /* Make special travel info span all columns */
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(44, 74, 82, 0.1);
+}
+
+.service-areas .travel-info i {
+  color: #537A84;
+}
+
+/* Testimonials Grid Layout */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+.testimonial-card {
+  background-color: #E8ECF0;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+  border: 1px solid rgba(157, 199, 196, 0.1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(44, 74, 82, 0.08);
+}
+
+.testimonial-card .quote {
+  font-size: 1.1rem;
+  line-height: 2;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: #537A84;
+  position: relative;
+  padding-left: 1.5rem;
+  flex-grow: 1;
+}
+
+.testimonial-card .quote::before {
+  content: """;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  font-size: 2rem;
+  color: rgba(255, 127, 80, 0.3);
+  line-height: 1;
+}
+
+.testimonial-author {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-author .author-info {
+  flex: 1;
+}
+
+/* Ensure the original font remains consistent throughout the site */
+body {
+  font-family: "Special Elite", Courier, monospace;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.8; /* Increased from 1.6 for better readability */
+  letter-spacing: 0.01em; /* Slight letter spacing for better readability */
+}
+
+/* Ensure headings maintain their original styling */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Special Elite", Courier, monospace;
+  font-weight: normal; /* Keep the original font weight */
+}
+
+/* Make any additional font styling consistent with the original */
+p, li, a, span, button, input, textarea {
+  font-family: "Special Elite", Courier, monospace;
+}
+
+/* Add consistent micro-interactions to all cards */
+.service-card i,
+.contact-card i,
+.team-member h3,
+.qualifications li::before,
+.location-card h3 {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.service-card:hover i,
+.contact-card:hover i {
+  transform: scale(1.1);
+  color: #FF7F50;
+}
+
+.team-member:hover h3,
+.location-card:hover h3 {
+  color: #FF7F50;
+}
+
+/* Unified button styles */
+.cta-button,
+.contact-button,
+.map-button,
+.review-button {
+  border-radius: 25px;
+  font-weight: 500;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Button hover effect */
+.cta-button::before,
+.contact-button::before,
+.map-button::before,
+.review-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+}
+
+.cta-button:hover::before,
+.contact-button:hover::before,
+.map-button:hover::before,
+.review-button:hover::before {
+  width: 150%;
+  height: 150%;
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.02));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+section:hover::after {
+  opacity: 1;
+}
+
+/* Better spacing in paragraphs sitewide */
+p {
+  margin-bottom: 1.2rem;
+  line-height: 1.9;
+}
+
+/* More breathing room in cards */
+.card-base, 
+.service-card,
+.team-member,
+.qualifications, 
+.location-card, 
+.testimonial-card,
+.contact-card,
+.value-card {
+  padding: 2.5rem; /* Increased padding */
+}
+
+/* Service cards specific improvements */
+.service-card {
+  padding: 2.5rem;
+}
+
+.service-card p {
+  line-height: 2; /* Increased line height for service descriptions */
+  margin-bottom: 1.5rem;
+  font-size: 1rem; /* Slightly larger font */
+  max-width: 90%; /* Prevent text from stretching too wide */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-card h4 {
+  margin-top: 1rem;
+  margin-bottom: 1.2rem; /* More space after heading */
+  line-height: 1.4;
+}
+
+/* Improved service area list with better alignment */
+.service-areas {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Larger minimum width */
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  width: 100%;
+  text-align: left; /* Align all items to the left */
+}
+
+.service-areas li {
+  padding: 0.4rem 0; /* More vertical padding */
+  display: flex;
+  align-items: center;
+  font-size: 1rem; /* Slightly larger font */
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+  white-space: nowrap; /* Prevent items from wrapping */
+}
+
+/* Consistent text styling in all cards */
+.testimonial-card .quote {
+  line-height: 2;
+  font-size: 1rem;
+}
+
+.location-card p {
+  line-height: 1.9;
+  margin-bottom: 1.8rem;
+}
+
+/* Better spacing between headings and content */
+h2 {
+  margin-bottom: 2.5rem;
+}
+
+h3 {
+  margin-bottom: 2rem;
+}
+
+h4 {
+  margin-bottom: 1.2rem;
+}
+
+/* Fix for South West London alignment */
+.service-areas .service-area-wide,
+.service-areas li:nth-child(8) { /* Targeting "South West London" */
+  grid-column: 1 / span 2; /* Make it span 2 columns */
+  justify-self: start; /* Align to the start of the grid area */
+}
+
+@media (max-width: 767px) {
+  .service-areas {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+  
+  .service-areas .service-area-wide,
+  .service-areas li:nth-child(8) {
+    grid-column: 1; /* Reset on mobile */
+  }
+}
+
+/* Make owner services card wider */
+.owner-services .service-card {
+  max-width: 500px; /* Increased from 350px */
+  width: 100%;
+}
+
+/* Mobile optimization adjustments */
+@media (max-width: 576px) {
+  /* Improve padding on mobile */
+  .card-base, 
+  .service-card,
+  .team-member,
+  .qualifications, 
+  .location-card, 
+  .testimonial-card,
+  .contact-card,
+  .value-card {
+    padding: 1.8rem; /* Slightly reduced padding on mobile */
+  }
+  
+  /* Ensure text is readable on smaller screens */
+  p {
+    font-size: 0.95rem;
+  }
+  
+  /* Make buttons larger for touch targets */
+  .contact-button,
+  .cta-button,
+  .map-button,
+  .review-button {
+    padding: 0.9rem 1.5rem;
+    min-height: 44px; /* Minimum touch target size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Fix service areas display on mobile */
+  .service-areas {
+    grid-template-columns: 1fr; /* Single column layout */
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .service-areas li {
+    justify-content: center;
+    white-space: normal; /* Allow text to wrap */
+  }
+  
+  /* Improve testimonial cards on mobile */
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+  
+  .testimonial-card .quote {
+    font-size: 0.95rem;
+    padding-left: 1.2rem;
+  }
+  
+  /* Adjust heading sizes on mobile */
+  h2 {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+  }
+  
+  h3 {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+  }
+  
+  h4 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Better responsive hero section */
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 6rem; /* Reduced top padding */
+  }
+  
+  .hero .hero-container .hero-image img {
+    height: 350px; /* Shorter image on mobile */
+  }
+  
+  /* Fix for "For Pet Owners" card on medium screens */
+  .owner-services .service-card {
+    max-width: 450px;
+  }
+}
+
+/* Fix image display on very small screens */
+@media (max-width: 360px) {
+  .photo-item {
+    height: 220px;
+  }
+  
+  .hero .hero-container .hero-image img {
+    height: 280px;
+  }
+}
+
+/* Fix touch targets and spacing */
+@media (hover: none) {
+  /* Increase tap targets for touch devices */
+  .nav-links li a,
+  .footer-content .footer-section a,
+  .social-links a {
+    padding: 0.7rem;
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Improve form elements on touch devices */
+  input, 
+  select, 
+  textarea, 
+  button {
+    min-height: 44px;
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+  
+  /* Add more breathing room between clickable elements */
+  .service-areas li,
+  .contact-buttons {
+    margin-bottom: 0.5rem;
   }
 }
